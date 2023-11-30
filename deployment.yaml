@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-deployment 
+
+spec:
+  template: 
+    metadata:
+      name: helloworld 
+      labels:
+        app: helloworld
+        tier: frontend
+    spec:
+      containers:
+        - name: helloworld
+          image: shuchitha/helloworld:latest
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: helloworld
+      tier: frontend
